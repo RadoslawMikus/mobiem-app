@@ -1,1 +1,26 @@
-<p>campaigns works!</p>
+<div class="campaigns-list">
+  <mat-tab-group fitInkBarToContent animationDuration="0ms">
+    <mat-tab label="Trwające"
+      ><div class="list current">
+        <div class="campaign" *ngFor="let campaign of current">
+          <div class="client">{{ campaign.client }}</div>
+          <div class="name">{{ campaign.name }}</div>
+          <div class="dates">
+            {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+          </div>
+        </div>
+      </div></mat-tab
+    >
+    <mat-tab label="Historia"
+      ><div class="list history">
+        <div class="campaign" *ngFor="let campaign of old">
+          <div class="client">{{ campaign.client }}</div>
+          <div class="name">{{ campaign.name }}</div>
+          <div class="dates">
+            {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+          </div>
+        </div>
+      </div></mat-tab
+    >
+  </mat-tab-group>
+</div>
