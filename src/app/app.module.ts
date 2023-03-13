@@ -9,7 +9,9 @@ import { CampaignsComponent } from './components/campaigns/campaigns.component';
 import { FormatsComponent } from './components/formats/formats.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatTabsModule} from '@angular/material/tabs';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,14 @@ import {MatTabsModule} from '@angular/material/tabs';
     FormatsComponent,
     NavigationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, MatTabsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

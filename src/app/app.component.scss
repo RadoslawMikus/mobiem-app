@@ -6,3 +6,10 @@ app-navigation {
   display: block;
   background-color: rgb(58, 58, 161);
 }
+
+.content {
+  display: block;
+  height: 92%;
+  width: 100%;
+  overflow: auto;
+}
