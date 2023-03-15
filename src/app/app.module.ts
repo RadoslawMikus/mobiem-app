@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { SingleCampaignComponent } from './components/campaigns/single-campaign/single-campaign.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatButtonModule } from '@angular/material/button';
     CampaignsComponent,
     FormatsComponent,
     NavigationComponent,
+    SingleCampaignComponent,
   ],
   imports: [
     BrowserModule,

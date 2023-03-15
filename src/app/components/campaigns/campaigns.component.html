@@ -2,24 +2,37 @@
   <mat-tab-group fitInkBarToContent animationDuration="0ms">
     <mat-tab label="Trwające"
       ><div class="list current">
-        <div class="campaign" *ngFor="let campaign of current">
-          <div class="client">{{ campaign.client }}</div>
-          <div class="name">{{ campaign.name }}</div>
-          <div class="dates">
-            {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
-          </div>
-        </div>
+        <a
+          *ngFor="let campaign of current"
+          [routerLink]="['/campaigns', campaign.id]"
+        >
+          <div
+            class="campaign"
+            [ngClass]="{ new: campaign.newCampaign === true }"
+          >
+            <div class="client">{{ campaign.client }}</div>
+            <div class="name">{{ campaign.name }}</div>
+            <div class="dates">
+              {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+            </div>
+          </div></a
+        >
       </div></mat-tab
     >
     <mat-tab label="Historia"
       ><div class="list history">
-        <div class="campaign" *ngFor="let campaign of old">
-          <div class="client">{{ campaign.client }}</div>
-          <div class="name">{{ campaign.name }}</div>
-          <div class="dates">
-            {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
-          </div>
-        </div>
+        <a
+          *ngFor="let campaign of old"
+          [routerLink]="['/campaigns', campaign.id]"
+        >
+          <div class="campaign">
+            <div class="client">{{ campaign.client }}</div>
+            <div class="name">{{ campaign.name }}</div>
+            <div class="dates">
+              {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+            </div>
+          </div></a
+        >
       </div></mat-tab
     >
   </mat-tab-group>
