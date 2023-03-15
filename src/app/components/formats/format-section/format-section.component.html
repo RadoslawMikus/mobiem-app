@@ -1,0 +1,19 @@
+<div class="header">
+  <a routerLink="/formats"><span class="material-icons"> arrow_back </span></a>
+  <h1>{{ title }}</h1>
+</div>
+<div class="full_description">
+  <p class="section_description">{{ description_1 }}</p>
+  <p class="section_description">{{ description_2 }}</p>
+  <p class="section_title">Poznaj rodzaje {{ title }}</p>
+</div>
+
+<div class="format_list">
+  <div class="format" *ngFor="let el of activeSection">
+    <div class="left_format">
+      <h2>{{ el.title }}</h2>
+      <p>{{ el.description }}</p>
+    </div>
+    <button [routerLink]="['/iframe', el.url]">Zobacz</button>
+  </div>
+</div>

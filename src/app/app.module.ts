@@ -13,6 +13,9 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { SingleCampaignComponent } from './components/campaigns/single-campaign/single-campaign.component';
+import { FormatSectionComponent } from './components/formats/format-section/format-section.component';
+import { IframeComponent } from './components/iframe/iframe.component';
+import { SafePipe } from './components/iframe/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -23,6 +26,9 @@ import { SingleCampaignComponent } from './components/campaigns/single-campaign/
     FormatsComponent,
     NavigationComponent,
     SingleCampaignComponent,
+    FormatSectionComponent,
+    IframeComponent,
+    SafePipe,
   ],
   imports: [
     BrowserModule,

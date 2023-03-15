@@ -1,0 +1,14 @@
+.section {
+  border: 2px solid black;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 20px auto;
+  padding: 10px;
+
+  img {
+    height: 150px;
+  }
+}

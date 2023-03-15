@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Campaign } from './campaign.model';
+import { Campaign } from './single-campaign/campaign.model';
 
 @Component({
   selector: 'app-campaigns',
