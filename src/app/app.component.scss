@@ -11,5 +11,7 @@ app-navigation {
   display: block;
   height: 92%;
   width: 100%;
+  max-width: 720px;
   overflow: auto;
+  margin: 0 auto;
 }

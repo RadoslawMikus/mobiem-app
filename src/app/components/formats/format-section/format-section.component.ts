@@ -59,8 +59,6 @@ export class FormatSectionComponent implements OnInit {
         new Format('Tytuł video 3', 'Opis video 3', 'URL video 3'),
       ];
     }
-
-    console.log(this.activeSection);
   }
 
   showUrl(url: string) {

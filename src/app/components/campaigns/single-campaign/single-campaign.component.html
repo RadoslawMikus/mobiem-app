@@ -1,2 +1,22 @@
-<p>single-campaign works!</p>
-<h1>{{ result }}</h1>
+<div class="header">
+  <a routerLink="/campaigns"
+    ><span class="material-icons"> arrow_back </span></a
+  >
+  <h1>Biedronka</h1>
+</div>
+<div class="full_description">
+  <p class="section_title">Nazwa Kampanii</p>
+  <h2>Świeżaki</h2>
+  <p class="section_title">Czas trwania</p>
+  <h2>06.02.2023 - 05.03.2023</h2>
+</div>
+
+<div class="format_list">
+  <div class="format" *ngFor="let el of activeSection">
+    <div class="left_format">
+      <h2>{{ el.title }}</h2>
+      <p>{{ el.description }}</p>
+    </div>
+    <button [routerLink]="['/iframe', el.url]">Zobacz</button>
+  </div>
+</div>

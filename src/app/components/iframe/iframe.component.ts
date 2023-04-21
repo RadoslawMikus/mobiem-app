@@ -19,4 +19,8 @@ export class IframeComponent implements OnInit {
   getUrl(url: string) {
     return 'https://lpmobiem.civ.pl/' + url;
   }
+
+  closeIframe() {
+    history.back();
+  }
 }

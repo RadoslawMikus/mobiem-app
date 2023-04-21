@@ -1,20 +1,27 @@
 <div class="login">
+  <img src="../../../assets/logo.svg" class="logo" />
+  <h1>Cześć!</h1>
+  <p class="about_section">
+    W tym miejscu przetestujesz reklamy z Twoich kampanii
+  </p>
+  <img src="../../../assets/welcome_mockup.png" class="mockup" />
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Login</mat-label>
+      <mat-icon class="material-icons-outlined" matPrefix>account_box</mat-icon>
+
       <input matInput placeholder="Adres e-mail" />
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
       <mat-label>Hasło</mat-label>
       <input matInput placeholder="Twoje hasło" />
+      <mat-icon class="material-icons-outlined" matPrefix>key</mat-icon>
     </mat-form-field>
-    <button mat-raised-button color="primary" class="login-btn">
-      Zaloguj się
-    </button>
+    <button mat-raised-button class="login-btn">Zaloguj się</button>
   </form>
 
-  <h2>lub</h2>
-
-  <p>Skontaktuj się z nami jeżeli nie masz albo zapomniałeś hasła</p>
+  <p class="no_password" (click)="noPassword()">
+    Nie masz loginu lub nie pamiętasz hasła?
+  </p>
 </div>

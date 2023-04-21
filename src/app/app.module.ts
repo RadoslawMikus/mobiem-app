@@ -16,6 +16,7 @@ import { SingleCampaignComponent } from './components/campaigns/single-campaign/
 import { FormatSectionComponent } from './components/formats/format-section/format-section.component';
 import { IframeComponent } from './components/iframe/iframe.component';
 import { SafePipe } from './components/iframe/safe.pipe';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { SafePipe } from './components/iframe/safe.pipe';
     MatTabsModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
