@@ -1,6 +1,5 @@
 .header {
-  height: 22%;
-  background-color: rgb(90, 192, 124);
+  height: 20%;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -15,25 +14,49 @@
 
   h1 {
     margin-left: 5px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
   }
+}
+
+.bg_push {
+  background-color: #3149e8;
+}
+
+.bg_fullpage {
+  background-color: #00c28f;
+}
+
+.bg_video {
+  background-color: #47464a;
+}
+
+.bg_banner {
+  background-color: #11e0e2;
 }
 
 .full_description {
   width: 100%;
   padding: 0 15px;
-  margin: 20px auto;
+  margin: 50px auto 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
 }
 
 .section_title {
   margin: 35px 0 0;
-  font-size: 12px;
   font-weight: 500;
-  color: #7e7e7e;
+  font-size: 14px;
+  line-height: 20px;
+  color: #777680;
 }
 
 .section_description {
   font-weight: 500;
-  width: 80%;
+  width: 90%;
+  margin: 25px 0;
 }
 
 .format {
@@ -51,21 +74,26 @@
 
 .left_format {
   h2 {
+    font-weight: 500;
     font-size: 16px;
+    line-height: 24px;
     margin: 0;
+    color: #1b1b1f;
   }
 
   p {
+    font-weight: 400;
     font-size: 14px;
-    color: #494949;
-    font-weight: 500;
+    line-height: 20px;
+    color: #46464f;
   }
 }
 
 button {
-  background-color: rgb(90, 192, 124);
   color: #fff;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
   width: 100px;
   height: 35px;
   border: 0 {

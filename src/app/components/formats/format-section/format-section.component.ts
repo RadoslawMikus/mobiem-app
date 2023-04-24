@@ -24,39 +24,109 @@ export class FormatSectionComponent implements OnInit {
     if (name === 'push') {
       this.title = 'Push Ads';
       this.description_1 =
-        'Pełnoekranowe reklamy, które pozwalają wykorzystać możliwości telefonu.';
+        'Docieraj do szczegółowo sprofilowanych użytkowników.';
       this.description_2 =
-        'Formaty atrakcyjne, interaktywne i wpływające na zaangażowanie.';
+        'User otrzymuje reklamę w głównym oknie powiadomień telefonu.';
       this.activeSection = [
-        new Format('Tytuł pusha 1', 'Opis pusha 1', 'URL pusha 1'),
-        new Format('Tytuł pusha 2', 'Opis pusha 2', 'URL pusha 2'),
-        new Format('Tytuł pusha 3', 'Opis pusha 3', 'URL pusha 3'),
+        new Format('Push graficzny', 'Ikona + Tytuł + Banner', 'URL pusha 1'),
+        new Format('Push tekstowy', 'Ikona + Tytuł + Tekst', 'URL pusha 2'),
       ];
     }
 
     if (name === 'fullpage') {
       this.title = 'Fullpage Ads';
       this.description_1 =
-        'Pełnoekranowe reklamy, które pozwalają wykorzystać możliwości telefonu.';
+        'Pełnoekranowe reklamy, które pozwalają wykorzystać możliwości smartfona.';
       this.description_2 =
-        'Formaty atrakcyjne, interaktywne i wpływające na zaangażowanie.';
+        'Formaty atrakcyjne wizualnie, angażujące i interaktywne.';
       this.activeSection = [
-        new Format('Tytuł fullpage 1', 'Opis fullpage 1', 'mobiemapp01'),
-        new Format('Tytuł fullpage 2', 'Opis fullpage 2', 'URL fullpage 2'),
-        new Format('Tytuł fullpage 3', 'Opis fullpage 3', 'URL fullpage 3'),
+        new Format(
+          'Interstitial Display',
+          'Reklama pełnoekranowa',
+          'mobiemapp01'
+        ),
+        new Format(
+          'Interstitial Video',
+          'Fullpage z osadzonym wideo',
+          'URL fullpage 2'
+        ),
+        new Format(
+          'Animation Rich Media',
+          'Atrakcyjna wizualnie',
+          'URL fullpage 3'
+        ),
+        new Format(
+          'Scratch Rich Media',
+          'Gest przetarcia ekranu',
+          'mobiemapp01'
+        ),
+        new Format(
+          'Slider Rich Media',
+          'Przesuwaj i porównaj',
+          'URL fullpage 2'
+        ),
+        new Format(
+          'Game Rich Media',
+          'Interaktywne zaangażowanie',
+          'URL fullpage 3'
+        ),
+        new Format(
+          'Quiz Rich Media',
+          'Przyciągnij uwagę na dłużej',
+          'mobiemapp01'
+        ),
+        new Format('Memo Rich Media', 'Prosta gra logiczna', 'URL fullpage 2'),
+        new Format(
+          'Fullpage Story Ad',
+          'Więcej informacji na ekranie',
+          'URL fullpage 3'
+        ),
+        new Format(
+          'Fullpage Legal Prawny',
+          'Format do specjalnych zadań',
+          'URL fullpage 3'
+        ),
       ];
     }
 
     if (name === 'video') {
       this.title = 'Video Ads';
-      this.description_1 =
-        'Pełnoekranowe reklamy, które pozwalają wykorzystać możliwości telefonu.';
+      this.description_1 = 'Krótkie formaty video to przyszłość.';
       this.description_2 =
-        'Formaty atrakcyjne, interaktywne i wpływające na zaangażowanie.';
+        'Wykorzystaj potencjał reklamowy spotów video na smartfonach.';
       this.activeSection = [
-        new Format('Tytuł video 1', 'Opis video 1', 'URL video 1'),
-        new Format('Tytuł video 2', 'Opis video 2', 'URL video 2'),
-        new Format('Tytuł video 3', 'Opis video 3', 'URL video 3'),
+        new Format(
+          'Pre-roll Video Ad',
+          'Krótkie, niepomijalne wideo ',
+          'mobiemapp01'
+        ),
+        new Format(
+          'Video Ad z endcard',
+          'Spot z ekranem końcowym',
+          'URL video 2'
+        ),
+        new Format(
+          'Rewarded Video',
+          'Wysoki poziom widoczności',
+          'URL video 3'
+        ),
+        new Format(
+          'Rewarded Video z endcard',
+          'Spot z ekranem końcowym',
+          'URL video 4'
+        ),
+      ];
+    }
+
+    if (name === 'banner') {
+      this.title = 'Banner Ads';
+      this.description_1 = 'Klasyczne formaty reklamowe w mobile.';
+      this.description_2 =
+        'Twój komunikat reklamowy będzie zauważalny i dopasowany do odbiorcy.';
+      this.activeSection = [
+        new Format('Mobile Banner HD', '640x100 px', 'URL banner 1'),
+        new Format('Rectangle Banner', '300x250px ', 'URL banner 2'),
+        new Format('Halfpage Ad', '300x600 px', 'URL banner 3'),
       ];
     }
   }

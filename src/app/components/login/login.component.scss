@@ -3,25 +3,20 @@
 .login {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
-  width: 90%;
+  width: 100%;
   align-items: stretch;
   margin: 0 auto;
   font-family: "Roboto";
   font-style: normal;
 }
 
-.logo {
-  width: 70%;
-  margin: 0 auto 10%;
-}
-
 form {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 0 15% 30px;
+  padding: 8% 15%;
 }
 .example-full-width {
   width: 100%;
@@ -57,7 +52,7 @@ p {
 }
 
 .mockup {
-  width: 100%;
+  width: 90%;
   margin: 20px auto;
 }
 

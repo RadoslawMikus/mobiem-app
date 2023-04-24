@@ -17,6 +17,7 @@ import { FormatSectionComponent } from './components/formats/format-section/form
 import { IframeComponent } from './components/iframe/iframe.component';
 import { SafePipe } from './components/iframe/safe.pipe';
 import { MatIconModule } from '@angular/material/icon';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { MatIconModule } from '@angular/material/icon';
     FormatSectionComponent,
     IframeComponent,
     SafePipe,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
