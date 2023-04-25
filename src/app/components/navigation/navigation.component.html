@@ -1,8 +1,36 @@
 <nav>
-  <ul>
-    <a routerLink="/login"><li>Login</li></a>
-    <a routerLink="/campaigns"><li>Kampanie</li></a>
-    <a routerLink="/formats"><li>Formaty</li></a>
-    <a routerLink="/contact"><li>Kontakt</li></a>
-  </ul>
+  <a routerLink="/login" routerLinkActive #lg="routerLinkActive"
+    ><div class="element">
+      <div class="icon" [ngClass]="{ icon_active: lg.isActive }">
+        <span class="material-symbols-outlined"> key </span>
+      </div>
+      <div class="title" [ngClass]="{ title_active: lg.isActive }">Login</div>
+    </div></a
+  >
+  <a routerLink="/campaigns" routerLinkActive #cp="routerLinkActive">
+    <div class="element">
+      <div class="icon" [ngClass]="{ icon_active: cp.isActive }">
+        <span class="material-symbols-outlined"> grade </span>
+      </div>
+      <div class="title" [ngClass]="{ title_active: cp.isActive }">
+        Kampanie
+      </div>
+    </div></a
+  >
+  <a routerLink="/formats" routerLinkActive #fr="routerLinkActive">
+    <div class="element">
+      <div class="icon" [ngClass]="{ icon_active: fr.isActive }">
+        <span class="material-symbols-outlined"> dashboard </span>
+      </div>
+      <div class="title" [ngClass]="{ title_active: fr.isActive }">Formaty</div>
+    </div></a
+  >
+  <a routerLink="/contact" routerLinkActive #ct="routerLinkActive"
+    ><div class="element">
+      <div class="icon" [ngClass]="{ icon_active: ct.isActive }">
+        <span class="material-symbols-outlined"> mail </span>
+      </div>
+      <div class="title" [ngClass]="{ title_active: ct.isActive }">Kontakt</div>
+    </div></a
+  >
 </nav>
