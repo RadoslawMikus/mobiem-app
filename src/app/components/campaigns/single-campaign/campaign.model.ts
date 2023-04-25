@@ -5,14 +5,18 @@ export class Campaign {
     public name: string,
     public startDate: Date,
     public endDate: Date,
-    public newCampaign: boolean
+    public alreadyTested: boolean,
+    public newCampaign: boolean,
+    public running: boolean
   ) {
     this.id = id;
     this.client = client;
     this.name = name;
     this.startDate = startDate;
     this.endDate = endDate;
+    this.alreadyTested = alreadyTested;
     this.newCampaign = newCampaign;
+    this.running = running;
   }
 
   getStartDate() {

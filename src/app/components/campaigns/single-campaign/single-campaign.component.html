@@ -2,13 +2,32 @@
   <a routerLink="/campaigns"
     ><span class="material-icons"> arrow_back </span></a
   >
-  <h1>Biedronka</h1>
+
+  <h1>{{ allArrs[activeCampaign - 1].client }}</h1>
+</div>
+<div class="badge_new" *ngIf="allArrs[activeCampaign - 1].newCampaign">
+  Kampania do przetestowania
+</div>
+<div
+  class="badge_tested"
+  *ngIf="
+    !allArrs[activeCampaign - 1].running &&
+    allArrs[activeCampaign - 1].alreadyTested
+  "
+>
+  Kampania przetestowana
+</div>
+<div class="badge_running" *ngIf="allArrs[activeCampaign - 1].running">
+  Kampania uruchomiona
 </div>
 <div class="full_description">
   <p class="section_title">Nazwa Kampanii</p>
-  <h2>Świeżaki</h2>
+  <h2 class="campaign_title">{{ allArrs[activeCampaign - 1].name }}</h2>
   <p class="section_title">Czas trwania</p>
-  <h2>06.02.2023 - 05.03.2023</h2>
+  <h2 class="dates">
+    {{ allArrs[activeCampaign - 1].getStartDate() }} -
+    {{ allArrs[activeCampaign - 1].getEndDate() }}
+  </h2>
 </div>
 
 <div class="format_list">
@@ -17,6 +36,6 @@
       <h2>{{ el.title }}</h2>
       <p>{{ el.description }}</p>
     </div>
-    <button [routerLink]="['/iframe', el.url]">Zobacz</button>
+    <button [routerLink]="['/iframe', el.url]">Przetestuj</button>
   </div>
 </div>

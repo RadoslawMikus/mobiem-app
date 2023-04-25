@@ -7,14 +7,16 @@ import { Campaign } from './single-campaign/campaign.model';
   styleUrls: ['./campaigns.component.scss'],
 })
 export class CampaignsComponent {
-  current = [
+  reaction = [
     new Campaign(
       1,
       'Biedronka',
       'Świeżaki',
       new Date(2022, 5, 10, 12, 2, 10),
       new Date(2022, 5, 12, 15, 9, 0),
-      true
+      false,
+      true,
+      false
     ),
     new Campaign(
       2,
@@ -22,15 +24,22 @@ export class CampaignsComponent {
       'Lidlaki',
       new Date(2023, 2, 15, 19, 9, 12),
       new Date(2023, 3, 12, 12, 44, 0),
-      true
+      true,
+      false,
+      false
     ),
+  ];
+
+  current = [
     new Campaign(
       3,
       'Kaufland',
       'Kauflandziaki',
       new Date(2023, 3, 5, 11, 41, 20),
       new Date(2022, 3, 7, 17, 44, 30),
-      false
+      false,
+      false,
+      true
     ),
     new Campaign(
       4,
@@ -38,7 +47,9 @@ export class CampaignsComponent {
       'Świeżaki',
       new Date(2022, 5, 10, 12, 2, 10),
       new Date(2022, 5, 12, 15, 9, 0),
-      false
+      false,
+      false,
+      true
     ),
     new Campaign(
       5,
@@ -46,7 +57,9 @@ export class CampaignsComponent {
       'Lidlaki',
       new Date(2023, 2, 15, 19, 9, 12),
       new Date(2023, 3, 12, 12, 44, 0),
-      false
+      false,
+      false,
+      true
     ),
     new Campaign(
       6,
@@ -54,7 +67,9 @@ export class CampaignsComponent {
       'Kauflandziaki',
       new Date(2023, 3, 5, 11, 41, 20),
       new Date(2022, 3, 7, 17, 44, 30),
-      false
+      false,
+      false,
+      true
     ),
   ];
 
@@ -65,6 +80,8 @@ export class CampaignsComponent {
       'Intermarszaki',
       new Date(2021, 12, 10, 16, 2, 10),
       new Date(2021, 12, 12, 12, 9, 0),
+      false,
+      false,
       false
     ),
     new Campaign(
@@ -73,6 +90,8 @@ export class CampaignsComponent {
       'Castoramiaki',
       new Date(2022, 2, 15, 19, 9, 12),
       new Date(2022, 3, 12, 12, 44, 0),
+      false,
+      false,
       false
     ),
     new Campaign(
@@ -81,6 +100,8 @@ export class CampaignsComponent {
       'Mrówkojadki',
       new Date(2022, 1, 2, 11, 11, 20),
       new Date(2022, 1, 15, 12, 32, 30),
+      false,
+      false,
       false
     ),
     new Campaign(
@@ -89,6 +110,8 @@ export class CampaignsComponent {
       'Żabkojady',
       new Date(2020, 2, 2, 12, 2, 10),
       new Date(2020, 5, 12, 43, 9, 0),
+      false,
+      false,
       false
     ),
     new Campaign(
@@ -97,6 +120,8 @@ export class CampaignsComponent {
       'Selgrosiaki',
       new Date(2019, 2, 15, 19, 9, 12),
       new Date(2019, 3, 12, 12, 44, 0),
+      false,
+      false,
       false
     ),
     new Campaign(
@@ -105,9 +130,35 @@ export class CampaignsComponent {
       'Kauflandziaki',
       new Date(2023, 7, 15, 14, 41, 20),
       new Date(2022, 9, 17, 17, 21, 30),
+      false,
+      false,
+      false
+    ),
+    new Campaign(
+      13,
+      'Mrówka',
+      'Mrówkojady',
+      new Date(2023, 7, 15, 14, 41, 20),
+      new Date(2022, 9, 17, 17, 21, 30),
+      false,
+      false,
+      false
+    ),
+    new Campaign(
+      14,
+      'Dino',
+      'Diniaki',
+      new Date(2023, 7, 15, 14, 41, 20),
+      new Date(2022, 9, 17, 17, 21, 30),
+      false,
+      false,
       false
     ),
   ];
 
   constructor() {}
+
+  allArrs() {
+    return [...this.reaction, ...this.current, ...this.old];
+  }
 }

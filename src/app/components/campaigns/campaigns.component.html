@@ -1,25 +1,49 @@
 <app-logo></app-logo>
 <div class="campaigns-list">
   <mat-tab-group fitInkBarToContent animationDuration="0ms">
-    <mat-tab label="Twoje kampanie"
-      ><div class="list current">
+    <mat-tab label="Twoje kampanie">
+      <h3>Do przetestowania:</h3>
+      <div class="list current">
+        <a
+          *ngFor="let campaign of reaction"
+          [routerLink]="['/campaigns', campaign.id]"
+        >
+          <div
+            class="campaign"
+            [ngClass]="{
+              tested: campaign.alreadyTested === true,
+              new: campaign.newCampaign
+            }"
+          >
+            <div class="client">{{ campaign.client }}</div>
+            <div class="name">{{ campaign.name }}</div>
+            <div class="subtext">Przetestuj teraz</div>
+          </div></a
+        >
+      </div>
+
+      <h3>Trwające kampanie:</h3>
+      <div class="list current">
         <a
           *ngFor="let campaign of current"
           [routerLink]="['/campaigns', campaign.id]"
         >
           <div
             class="campaign"
-            [ngClass]="{ new: campaign.newCampaign === true }"
+            [ngClass]="{
+              tested: campaign.alreadyTested === true,
+              new: campaign.newCampaign
+            }"
           >
             <div class="client">{{ campaign.client }}</div>
             <div class="name">{{ campaign.name }}</div>
-            <div class="dates">
+            <div class="subtext">
               {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
             </div>
           </div></a
         >
-      </div></mat-tab
-    >
+      </div>
+    </mat-tab>
     <mat-tab label="Historia"
       ><div class="list history">
         <a
@@ -27,9 +51,9 @@
           [routerLink]="['/campaigns', campaign.id]"
         >
           <div class="campaign">
-            <div class="client">{{ campaign.client }}</div>
-            <div class="name">{{ campaign.name }}</div>
-            <div class="dates">
+            <div class="client history">{{ campaign.client }}</div>
+            <div class="name history">{{ campaign.name }}</div>
+            <div class="dates history">
               {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
             </div>
           </div></a
