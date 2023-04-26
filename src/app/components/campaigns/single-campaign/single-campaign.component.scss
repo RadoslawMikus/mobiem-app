@@ -96,7 +96,8 @@ button {
 
 .badge_new,
 .badge_running,
-.badge_tested {
+.badge_tested,
+.badge_ended {
   display: inline-block;
   padding: 5px 10px;
   border-radius: 20px;
@@ -118,4 +119,20 @@ button {
 
 .badge_running {
   background-color: #5066ff;
+}
+
+.badge_ended {
+  background: #78767a;
+}
+
+.history_header {
+  background: #5f5e62;
+}
+
+.history_button {
+  background-color: #000;
+}
+
+.history_title {
+  color: #000;
 }

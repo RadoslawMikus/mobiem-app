@@ -16,6 +16,7 @@ export class CampaignsComponent {
       new Date(2022, 5, 12, 15, 9, 0),
       false,
       true,
+      false,
       false
     ),
     new Campaign(
@@ -25,6 +26,7 @@ export class CampaignsComponent {
       new Date(2023, 2, 15, 19, 9, 12),
       new Date(2023, 3, 12, 12, 44, 0),
       true,
+      false,
       false,
       false
     ),
@@ -39,7 +41,8 @@ export class CampaignsComponent {
       new Date(2022, 3, 7, 17, 44, 30),
       false,
       false,
-      true
+      true,
+      false
     ),
     new Campaign(
       4,
@@ -49,7 +52,8 @@ export class CampaignsComponent {
       new Date(2022, 5, 12, 15, 9, 0),
       false,
       false,
-      true
+      true,
+      false
     ),
     new Campaign(
       5,
@@ -59,7 +63,8 @@ export class CampaignsComponent {
       new Date(2023, 3, 12, 12, 44, 0),
       false,
       false,
-      true
+      true,
+      false
     ),
     new Campaign(
       6,
@@ -69,7 +74,8 @@ export class CampaignsComponent {
       new Date(2022, 3, 7, 17, 44, 30),
       false,
       false,
-      true
+      true,
+      false
     ),
   ];
 
@@ -82,7 +88,8 @@ export class CampaignsComponent {
       new Date(2021, 12, 12, 12, 9, 0),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       8,
@@ -92,7 +99,8 @@ export class CampaignsComponent {
       new Date(2022, 3, 12, 12, 44, 0),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       9,
@@ -102,7 +110,8 @@ export class CampaignsComponent {
       new Date(2022, 1, 15, 12, 32, 30),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       10,
@@ -112,7 +121,8 @@ export class CampaignsComponent {
       new Date(2020, 5, 12, 43, 9, 0),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       11,
@@ -122,7 +132,8 @@ export class CampaignsComponent {
       new Date(2019, 3, 12, 12, 44, 0),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       12,
@@ -132,7 +143,8 @@ export class CampaignsComponent {
       new Date(2022, 9, 17, 17, 21, 30),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       13,
@@ -142,7 +154,8 @@ export class CampaignsComponent {
       new Date(2022, 9, 17, 17, 21, 30),
       false,
       false,
-      false
+      false,
+      true
     ),
     new Campaign(
       14,
@@ -152,7 +165,8 @@ export class CampaignsComponent {
       new Date(2022, 9, 17, 17, 21, 30),
       false,
       false,
-      false
+      false,
+      true
     ),
   ];
 

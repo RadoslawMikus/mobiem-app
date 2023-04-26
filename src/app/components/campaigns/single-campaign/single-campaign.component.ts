@@ -20,6 +20,7 @@ export class SingleCampaignComponent implements OnInit {
       new Date(2022, 5, 12, 15, 9, 0),
       false,
       true,
+      false,
       false
     ),
     new Campaign(
@@ -30,6 +31,7 @@ export class SingleCampaignComponent implements OnInit {
       new Date(2023, 3, 12, 12, 44, 0),
       true,
       false,
+      false,
       false
     ),
     new Campaign(
@@ -38,9 +40,10 @@ export class SingleCampaignComponent implements OnInit {
       'Kauflandziaki',
       new Date(2023, 3, 5, 11, 41, 20),
       new Date(2022, 3, 7, 17, 44, 30),
+      true,
       false,
-      false,
-      true
+      true,
+      false
     ),
     new Campaign(
       4,
@@ -48,9 +51,10 @@ export class SingleCampaignComponent implements OnInit {
       'Świeżaki',
       new Date(2022, 5, 10, 12, 2, 10),
       new Date(2022, 5, 12, 15, 9, 0),
+      true,
       false,
-      false,
-      true
+      true,
+      false
     ),
     new Campaign(
       5,
@@ -58,9 +62,10 @@ export class SingleCampaignComponent implements OnInit {
       'Lidlaki',
       new Date(2023, 2, 15, 19, 9, 12),
       new Date(2023, 3, 12, 12, 44, 0),
+      true,
       false,
-      false,
-      true
+      true,
+      false
     ),
     new Campaign(
       6,
@@ -68,9 +73,10 @@ export class SingleCampaignComponent implements OnInit {
       'Kauflandziaki',
       new Date(2023, 3, 5, 11, 41, 20),
       new Date(2022, 3, 7, 17, 44, 30),
+      true,
       false,
-      false,
-      true
+      true,
+      false
     ),
     new Campaign(
       7,
@@ -78,9 +84,10 @@ export class SingleCampaignComponent implements OnInit {
       'Intermarszaki',
       new Date(2021, 12, 10, 16, 2, 10),
       new Date(2021, 12, 12, 12, 9, 0),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       8,
@@ -88,9 +95,10 @@ export class SingleCampaignComponent implements OnInit {
       'Castoramiaki',
       new Date(2022, 2, 15, 19, 9, 12),
       new Date(2022, 3, 12, 12, 44, 0),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       9,
@@ -98,9 +106,10 @@ export class SingleCampaignComponent implements OnInit {
       'Mrówkojadki',
       new Date(2022, 1, 2, 11, 11, 20),
       new Date(2022, 1, 15, 12, 32, 30),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       10,
@@ -108,9 +117,10 @@ export class SingleCampaignComponent implements OnInit {
       'Żabkojady',
       new Date(2020, 2, 2, 12, 2, 10),
       new Date(2020, 5, 12, 43, 9, 0),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       11,
@@ -118,9 +128,10 @@ export class SingleCampaignComponent implements OnInit {
       'Selgrosiaki',
       new Date(2019, 2, 15, 19, 9, 12),
       new Date(2019, 3, 12, 12, 44, 0),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       12,
@@ -128,9 +139,10 @@ export class SingleCampaignComponent implements OnInit {
       'Kauflandziaki',
       new Date(2023, 7, 15, 14, 41, 20),
       new Date(2022, 9, 17, 17, 21, 30),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       13,
@@ -138,9 +150,10 @@ export class SingleCampaignComponent implements OnInit {
       'Mrówkojady',
       new Date(2023, 7, 15, 14, 41, 20),
       new Date(2022, 9, 17, 17, 21, 30),
+      true,
       false,
       false,
-      false
+      true
     ),
     new Campaign(
       14,
@@ -148,9 +161,10 @@ export class SingleCampaignComponent implements OnInit {
       'Diniaki',
       new Date(2023, 7, 15, 14, 41, 20),
       new Date(2022, 9, 17, 17, 21, 30),
+      true,
       false,
       false,
-      false
+      true
     ),
   ];
   activeSection = [
