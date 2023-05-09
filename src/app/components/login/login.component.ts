@@ -6,11 +6,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  login: string;
+  password: string;
+  show_popup: boolean = false;
   constructor() {}
 
-  noPassword() {
-    alert(
-      'Aby uzyskać dostęp do testowania Twoich kampanii reklamowych skontaktuj się z osobą obsługującą, z Mobiem / Polsat Media.'
-    );
+  openPopup() {
+    this.show_popup = true;
+  }
+
+  closePopup() {
+    this.show_popup = false;
   }
 }

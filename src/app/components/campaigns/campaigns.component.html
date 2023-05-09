@@ -1,64 +1,73 @@
-<app-logo></app-logo>
-<div class="campaigns-list">
-  <mat-tab-group fitInkBarToContent animationDuration="0ms">
-    <mat-tab label="Twoje kampanie">
-      <h3>Do przetestowania:</h3>
-      <div class="list current">
-        <a
-          *ngFor="let campaign of reaction"
-          [routerLink]="['/campaigns', campaign.id]"
-        >
-          <div
-            class="campaign"
-            [ngClass]="{
-              tested: campaign.alreadyTested === true,
-              new: campaign.newCampaign
-            }"
-          >
-            <div class="client">{{ campaign.client }}</div>
-            <div class="name">{{ campaign.name }}</div>
-            <div class="subtext">Przetestuj teraz</div>
-          </div></a
-        >
-      </div>
+<div class="campaigns">
+  <app-logo></app-logo>
+  <div class="search_container">
+    <input id="search" placeholder="Wyszukaj kampanię" />
+    <span class="material-symbols-outlined" matPrefix> search </span>
+  </div>
 
-      <h3>Trwające kampanie:</h3>
-      <div class="list current">
-        <a
-          *ngFor="let campaign of current"
-          [routerLink]="['/campaigns', campaign.id]"
-        >
-          <div
-            class="campaign"
-            [ngClass]="{
-              tested: campaign.alreadyTested === true,
-              new: campaign.newCampaign
-            }"
+  <div class="campaigns-list">
+    <mat-tab-group fitInkBarToContent animationDuration="0ms">
+      <mat-tab label="Twoje kampanie">
+        <h3>Do przetestowania:</h3>
+        <div class="list current">
+          <a
+            *ngFor="let campaign of reaction"
+            [routerLink]="['/campaigns', campaign.id]"
           >
-            <div class="client">{{ campaign.client }}</div>
-            <div class="name">{{ campaign.name }}</div>
-            <div class="subtext">
-              {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
-            </div>
-          </div></a
-        >
-      </div>
-    </mat-tab>
-    <mat-tab label="Historia"
-      ><div class="list history">
-        <a
-          *ngFor="let campaign of old"
-          [routerLink]="['/campaigns', campaign.id]"
-        >
-          <div class="campaign">
-            <div class="client history">{{ campaign.client }}</div>
-            <div class="name history">{{ campaign.name }}</div>
-            <div class="dates history">
-              {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
-            </div>
-          </div></a
-        >
-      </div></mat-tab
-    >
-  </mat-tab-group>
+            <div
+              class="campaign"
+              [ngClass]="{
+                tested: campaign.alreadyTested === true,
+                new: campaign.newCampaign
+              }"
+            >
+              <div class="client">{{ campaign.client }}</div>
+              <div class="name">{{ campaign.name }}</div>
+              <div class="subtext">Przetestuj teraz</div>
+            </div></a
+          >
+        </div>
+
+        <h3>Trwające kampanie:</h3>
+        <div class="list current">
+          <a
+            *ngFor="let campaign of current"
+            [routerLink]="['/campaigns', campaign.id]"
+          >
+            <div
+              class="campaign"
+              [ngClass]="{
+                tested: campaign.alreadyTested === true,
+                new: campaign.newCampaign
+              }"
+            >
+              <div class="client">{{ campaign.client }}</div>
+              <div class="name">{{ campaign.name }}</div>
+              <div class="subtext">
+                {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+              </div>
+            </div></a
+          >
+        </div>
+      </mat-tab>
+      <mat-tab label="Historia"
+        ><div class="list history">
+          <a
+            *ngFor="let campaign of old"
+            [routerLink]="['/campaigns', campaign.id]"
+          >
+            <div class="campaign">
+              <div class="client history">{{ campaign.client }}</div>
+              <div class="name history">{{ campaign.name }}</div>
+              <div class="dates history">
+                {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+              </div>
+            </div></a
+          >
+        </div></mat-tab
+      >
+    </mat-tab-group>
+  </div>
 </div>
+
+<app-navigation></app-navigation>

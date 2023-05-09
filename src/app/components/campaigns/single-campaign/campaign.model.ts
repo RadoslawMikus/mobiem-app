@@ -25,19 +25,19 @@ export class Campaign {
     return (
       this.startDate.getFullYear() +
       '.' +
-      (this.startDate.getMonth() + 1) +
+      ('0' + (this.startDate.getMonth() + 1)).slice(-2) +
       '.' +
-      this.startDate.getDate()
+      ('0' + (this.startDate.getDate() + 1)).slice(-2)
     );
   }
 
   getEndDate() {
     return (
-      this.endDate.getFullYear() +
+      this.startDate.getFullYear() +
       '.' +
-      (this.endDate.getMonth() + 1) +
+      ('0' + (this.startDate.getMonth() + 1)).slice(-2) +
       '.' +
-      this.endDate.getDate()
+      ('0' + (this.startDate.getDate() + 1)).slice(-2)
     );
   }
 }

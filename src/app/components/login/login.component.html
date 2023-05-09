@@ -4,24 +4,57 @@
   <p class="about_section">
     W tym miejscu przetestujesz reklamy z Twoich kampanii
   </p>
-  <img src="../../../assets/welcome_mockup.png" class="mockup" />
+  <div class="mockup_container">
+    <img src="../../../assets/welcome_mockup.png" class="mockup" />
+  </div>
+
   <form class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Login</mat-label>
-      <mat-icon class="material-icons-outlined" matPrefix>account_box</mat-icon>
+      <span class="material-symbols-outlined" matPrefix> account_box </span>
 
-      <input matInput placeholder="Adres e-mail" />
+      <input
+        type="email"
+        matInput
+        placeholder="Adres e-mail"
+        id="mail"
+        name="login"
+        [(ngModel)]="login"
+      />
     </mat-form-field>
-
     <mat-form-field class="example-full-width">
       <mat-label>Hasło</mat-label>
-      <input matInput placeholder="Twoje hasło" />
-      <mat-icon class="material-icons-outlined" matPrefix>key</mat-icon>
+      <input
+        matInput
+        placeholder="Twoje hasło"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+      />
+
+      <span class="material-symbols-outlined" matPrefix> key </span>
     </mat-form-field>
-    <button mat-raised-button class="login-btn">Zaloguj się</button>
+    <button
+      mat-raised-button
+      [ngClass]="{ green: login || password }"
+      class="login-btn"
+    >
+      Zaloguj się
+    </button>
   </form>
 
-  <p class="no_password" (click)="noPassword()">
+  <p class="no_password" (click)="openPopup()">
     Nie masz loginu lub nie pamiętasz hasła?
   </p>
 </div>
+<div id="overlay" *ngIf="show_popup"></div>
+<div id="pop_up" *ngIf="show_popup">
+  <h2>Jak uzyskać dostęp?</h2>
+  <p>
+    Aby uzyskać dostęp do testowania Twoich kampanii reklamowych skontaktuj się
+    z osobą obsługującą, z Mobiem / Polsat Media.
+  </p>
+
+  <h3 (click)="closePopup()">Ok, rozumiem</h3>
+</div>
+<app-navigation></app-navigation>
