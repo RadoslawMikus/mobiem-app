@@ -1,6 +1,19 @@
+$section-title: #777680;
+$campaign-title: #3149e8;
+$format-color: #d4d4d4;
+$header-color: #3149e8;
+$button-color: #3149e8;
+$badge-new: #9d413c;
+$badge-tested: #00c28f;
+$badge-running: #5066ff;
+$badge-ended: #78767a;
+$history-header: #5f5e62;
+$history-bg: #000;
+$history-color: #000;
+
 .header {
   height: 22%;
-  background-color: #3149e8;
+  background-color: $header-color;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -15,9 +28,11 @@
 
   h1 {
     margin-left: 5px;
-    font-weight: 400;
-    font-size: 24px;
     line-height: 32px;
+    font: {
+      weight: 400;
+      size: 24px;
+    }
   }
 }
 
@@ -29,11 +44,13 @@
 
 .section_title {
   margin: 30px 0 0;
-  font-weight: 500;
-  font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.1px;
-  color: #777680;
+  color: $section-title;
+  font: {
+    weight: 500;
+    size: 14px;
+  }
 }
 
 .section_description {
@@ -42,16 +59,18 @@
 }
 
 .campaign_title {
-  font-weight: 400;
-  font-size: 24px;
   line-height: 32px;
-  color: #3149e8;
+  color: $campaign-title;
+  font: {
+    weight: 400;
+    size: 24px;
+  }
 }
 
 .format {
-  border-bottom: 1px solid #d4d4d4;
-  width: 100%;
   display: flex;
+  border-bottom: 1px solid $format-color;
+  width: 100%;
   align-items: center;
   justify-content: space-between;
   padding: 5px 15px 10px;
@@ -75,10 +94,8 @@
 }
 
 button {
-  background-color: #3149e8;
+  background-color: $button-color;
   color: #fff;
-  font-weight: 500;
-  font-size: 14px;
   line-height: 20px;
   letter-spacing: 0.1px;
   width: 100px;
@@ -86,12 +103,18 @@ button {
   border: 0 {
     radius: 15px;
   }
+  font: {
+    weight: 500;
+    size: 14px;
+  }
 }
 
 .dates {
-  font-weight: 400;
-  font-size: 22px;
   line-height: 28px;
+  font: {
+    weight: 400;
+    size: 22px;
+  }
 }
 
 .badge_new,
@@ -102,37 +125,39 @@ button {
   padding: 5px 10px;
   border-radius: 20px;
   color: #fff;
-  font-weight: 500;
-  font-size: 11px;
   line-height: 16px;
   letter-spacing: 0.5px;
   margin: 15px 15px 0;
+  font: {
+    weight: 500;
+    size: 11px;
+  }
 }
 
 .badge_new {
-  background-color: #9d413c;
+  background-color: $badge-new;
 }
 
 .badge_tested {
-  background-color: #00c28f;
+  background-color: $badge-tested;
 }
 
 .badge_running {
-  background-color: #5066ff;
+  background-color: $badge-running;
 }
 
 .badge_ended {
-  background: #78767a;
+  background: $badge-ended;
 }
 
 .history_header {
-  background: #5f5e62;
+  background: $history-header;
 }
 
 .history_button {
-  background-color: #000;
+  background-color: $history-bg;
 }
 
 .history_title {
-  color: #000;
+  color: $history-color;
 }

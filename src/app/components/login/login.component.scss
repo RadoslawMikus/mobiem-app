@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 88%;
+  height: 88.8%;
   width: 100%;
   align-items: stretch;
   margin: 0 auto;
   font-family: "Roboto";
   font-style: normal;
+  overflow: auto;
 }
 
 form {
@@ -57,7 +58,8 @@ p {
 }
 
 .mockup {
-  width: 100%;
+  width: 90%;
+  margin: 20px auto;
 }
 
 .about_section {
@@ -79,12 +81,6 @@ p {
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 600, "GRAD" 0, "opsz" 48;
   margin: 5px 15px;
-}
-
-.mockup_container {
-  width: 90%;
-  min-height: 25.25%;
-  margin: 20px auto;
 }
 
 #pop_up {

@@ -1,3 +1,9 @@
+$push-bg: #3149e8;
+$fullpage-bg: #00c28f;
+$video-bg: #47464a;
+$banner-bg: #11e0e2;
+$section-title: #777680;
+
 .header {
   height: 20%;
   color: #fff;
@@ -13,44 +19,50 @@
   }
 
   h1 {
+    font: {
+      weight: 400;
+      size: 24px;
+    }
     margin-left: 5px;
-    font-weight: 400;
-    font-size: 24px;
     line-height: 32px;
   }
 }
 
 .bg_push {
-  background-color: #3149e8;
+  background-color: $push-bg;
 }
 
 .bg_fullpage {
-  background-color: #00c28f;
+  background-color: $fullpage-bg;
 }
 
 .bg_video {
-  background-color: #47464a;
+  background-color: $video-bg;
 }
 
 .bg_banner {
-  background-color: #11e0e2;
+  background-color: $banner-bg;
 }
 
 .full_description {
   width: 100%;
   padding: 0 15px;
   margin: 50px auto 20px;
-  font-weight: 400;
-  font-size: 16px;
   line-height: 24px;
+  font: {
+    weight: 400;
+    size: 16px;
+  }
 }
 
 .section_title {
   margin: 35px 0 0;
-  font-weight: 500;
-  font-size: 14px;
   line-height: 20px;
-  color: #777680;
+  color: $section-title;
+  font: {
+    weight: 500;
+    size: 14px;
+  }
 }
 
 .section_description {
@@ -74,29 +86,35 @@
 
 .left_format {
   h2 {
-    font-weight: 500;
-    font-size: 16px;
     line-height: 24px;
     margin: 0;
     color: #1b1b1f;
+    font: {
+      weight: 500;
+      size: 16px;
+    }
   }
 
   p {
-    font-weight: 400;
-    font-size: 14px;
     line-height: 20px;
     color: #46464f;
+    font: {
+      weight: 400;
+      size: 14px;
+    }
   }
 }
 
 button {
   color: #fff;
-  font-weight: 500;
-  font-size: 14px;
   line-height: 20px;
   width: 100px;
   height: 35px;
   border: 0 {
     radius: 15px;
+  }
+  font: {
+    weight: 500;
+    size: 14px;
   }
 }

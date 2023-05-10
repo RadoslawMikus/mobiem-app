@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+$navigation-bg: #3149e8;
+$tab-color: #3149e8;
+
 * {
   padding: 0;
   margin: 0;
@@ -25,13 +28,13 @@ a {
 .mat-mdc-tab:not(.mat-mdc-tab-disabled).mdc-tab--active .mdc-tab__text-label,
 .mat-mdc-tab-link:not(.mat-mdc-tab-disabled).mdc-tab--active
   .mdc-tab__text-label {
-  color: #3149e8;
+  color: $tab-color;
 }
 
 .mat-mdc-tab:not(.mat-mdc-tab-disabled) .mdc-tab-indicator__content--underline,
 .mat-mdc-tab-link:not(.mat-mdc-tab-disabled)
   .mdc-tab-indicator__content--underline {
-  border-color: #3149e8;
+  border-color: $tab-color;
 }
 
 app-navigation {
@@ -42,6 +45,6 @@ app-navigation {
   height: 12%;
   max-height: 100px;
   display: block;
-  background-color: #3149e8;
+  background-color: $navigation-bg;
   z-index: 5;
 }

@@ -1,35 +1,40 @@
-nav {
+$icon-active-bg: #76adff;
+$title-active: #76adff;
+
+@mixin flex {
   display: flex;
   justify-content: center;
-  font-weight: 500;
-  font-size: 12px;
+  align-items: center;
+}
+
+nav {
+  height: 100%;
+  @include flex;
   line-height: 16px;
   color: #fff;
   letter-spacing: 0.5px;
-  align-items: center;
-  height: 100%;
+  font: {
+    weight: 500;
+    size: 12px;
+  }
 }
 
 .element {
   height: 80px;
   width: 80px;
-  display: flex;
+  @include flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 10%;
 
   .icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     width: 80%;
     height: 30px;
   }
 }
 
 .icon_active {
-  background: #76adff;
+  background: $icon-active-bg;
   border-radius: 15px;
 }
 
@@ -39,5 +44,5 @@ a {
 }
 
 .title_active {
-  color: #76adff;
+  color: $title-active;
 }
