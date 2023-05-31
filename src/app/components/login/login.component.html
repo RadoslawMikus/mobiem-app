@@ -34,7 +34,7 @@
     </mat-form-field>
     <button
       mat-raised-button
-      [ngClass]="{ green: login || password }"
+      [ngClass]="{ green: login && password }"
       class="login-btn"
     >
       Zaloguj się
