@@ -57,3 +57,8 @@ body > app-root > div > app-campaigns > div > div.campaigns-list > nav > div {
 .mat-mdc-tab-link .mdc-tab__text-label {
   color: #46464f;
 }
+
+span.mdc-tab-indicator {
+  width: 50%;
+  left: 25%;
+}
