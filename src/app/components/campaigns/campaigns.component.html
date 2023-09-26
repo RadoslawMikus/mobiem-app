@@ -1,12 +1,245 @@
 <div class="campaigns">
-  <app-logo></app-logo>
-  <div class="search_container">
-    <input id="search" placeholder="Wyszukaj kampanię" />
-    <span class="material-symbols-outlined" matPrefix> search </span>
+  <app-logo
+    *ngIf="
+      searchbar === '' &&
+      !this.filters['running'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['history'] &&
+      !searchActive
+    "
+  ></app-logo>
+  <div
+    class="search_container"
+    [ngClass]="{
+      search_container_active:
+        searchbar !== '' ||
+        this.filters['running'] ||
+        this.filters['for_testing'] ||
+        this.filters['history'] ||
+        searchActive
+    }"
+  >
+    <span
+      (click)="searchActive && makeSearchActive()"
+      class="material-symbols-outlined wstecz"
+      matPrefix
+      *ngIf="
+        searchbar !== '' ||
+        this.filters['running'] ||
+        this.filters['for_testing'] ||
+        this.filters['history'] ||
+        searchActive
+      "
+    >
+      arrow_back
+    </span>
+    <input
+      id="search"
+      class="search"
+      placeholder="Wyszukaj kampanię"
+      [(ngModel)]="searchbar"
+      (ngModelChange)="searchIt(searchbar)"
+      [ngClass]="{
+        search_active:
+          searchbar !== '' ||
+          this.filters['running'] ||
+          this.filters['for_testing'] ||
+          this.filters['history'] ||
+          searchActive
+      }"
+      (click)="!searchActive && makeSearchActive()"
+      (input)="searchSave()"
+    />
+    <span
+      class="material-symbols-outlined lupa"
+      matPrefix
+      *ngIf="
+        searchbar === '' &&
+        !this.filters['running'] &&
+        !this.filters['for_testing'] &&
+        !this.filters['history'] &&
+        !searchActive
+      "
+    >
+      search
+    </span>
+  </div>
+  <div class="searchFilters" *ngIf="searchbar !== '' && searchActive">
+    <span
+      [ngClass]="{ activeFilter: filters['running'] }"
+      (click)="changeFilter($event)"
+      title="running"
+      >Trwające
+      <svg
+        *ngIf="filters['running']"
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+      >
+        <path
+          d="M14.25 4.8075L13.1925 3.75L9 7.9425L4.8075 3.75L3.75 4.8075L7.9425 9L3.75 13.1925L4.8075 14.25L9 10.0575L13.1925 14.25L14.25 13.1925L10.0575 9L14.25 4.8075Z"
+          fill="#001B3C"
+        />
+      </svg>
+    </span>
+    <span
+      [ngClass]="{ activeFilter: filters['for_testing'] }"
+      (click)="changeFilter($event)"
+      title="for_testing"
+      >Do testów
+      <svg
+        *ngIf="filters['for_testing']"
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+      >
+        <path
+          d="M14.25 4.8075L13.1925 3.75L9 7.9425L4.8075 3.75L3.75 4.8075L7.9425 9L3.75 13.1925L4.8075 14.25L9 10.0575L13.1925 14.25L14.25 13.1925L10.0575 9L14.25 4.8075Z"
+          fill="#001B3C"
+        />
+      </svg>
+    </span>
+    <span
+      [ngClass]="{ activeFilter: filters['history'] }"
+      (click)="changeFilter($event)"
+      title="history"
+      >Historia
+      <svg
+        *ngIf="filters['history']"
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 18 18"
+        fill="none"
+      >
+        <path
+          d="M14.25 4.8075L13.1925 3.75L9 7.9425L4.8075 3.75L3.75 4.8075L7.9425 9L3.75 13.1925L4.8075 14.25L9 10.0575L13.1925 14.25L14.25 13.1925L10.0575 9L14.25 4.8075Z"
+          fill="#001B3C"
+        />
+      </svg>
+    </span>
   </div>
 
-  <div class="campaigns-list">
-    <mat-tab-group fitInkBarToContent animationDuration="0ms">
+  <div
+    class="campaigns-list"
+    *ngIf="
+      searchbar === '' &&
+      !this.filters['running'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['history'] &&
+      !this.searchActive
+    "
+  >
+    <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+      <a
+        mat-tab-link
+        (click)="searchActive && makeSearchActive()"
+        (click)="changeTab('current')"
+        (click)="activeLink = 'current'"
+        [active]="activeLink == 'current'"
+      >
+        Aktualne</a
+      >
+      <!-- routerLink="/filters/current"
+        routerLinkActive -->
+      <a
+        mat-tab-link
+        (click)="searchActive && makeSearchActive()"
+        (click)="changeTab('history')"
+        (click)="activeLink = 'history'"
+        [active]="activeLink == 'history'"
+        >Historia</a
+      >
+      <!-- routerLink="/filters/history/"
+        routerLinkActive -->
+      <!-- <a
+      mat-tab-link
+      *ngFor="let link of links"
+      (click)="activeLink = link"
+      [active]="activeLink == link"
+      routerLink="/contact" routerLinkActive
+    >
+      {{ link }}
+    </a> -->
+    </nav>
+    <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+    <!-- <router-outlet name="tabs"></router-outlet> -->
+
+    <!-- *ngIf="
+    this.activatedRoute.snapshot.url.join('/') === 'filters/current' ||
+    this.activatedRoute.snapshot.url.join('/') === 'campaigns'
+  " -->
+    <div *ngIf="this.activeTab === 'current'" class="currentTab">
+      <h3>Do przetestowania:</h3>
+      <div class="list current">
+        <a
+          *ngFor="let campaign of reaction"
+          [routerLink]="['/campaigns', campaign.id]"
+        >
+          <div
+            class="campaign"
+            [ngClass]="{
+              tested: campaign.alreadyTested === true,
+              new: campaign.newCampaign
+            }"
+          >
+            <div class="client">{{ campaign.client }}</div>
+            <div class="name">{{ campaign.name }}</div>
+            <div class="subtext">Przetestuj teraz</div>
+          </div></a
+        >
+      </div>
+
+      <h3>Trwające kampanie:</h3>
+      <div class="list current">
+        <a
+          *ngFor="let campaign of current"
+          [routerLink]="['/campaigns', campaign.id]"
+        >
+          <div class="campaign">
+            <div class="client">{{ campaign.client }}</div>
+            <div class="name">{{ campaign.name }}</div>
+            <div class="subtext">
+              {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+            </div>
+          </div></a
+        >
+      </div>
+    </div>
+
+    <!-- *ngIf="this.activatedRoute.snapshot.url.join('/') === 'filters/history'" -->
+    <div class="historyTab" *ngIf="this.activeTab === 'history'">
+      <div class="list history">
+        <a
+          *ngFor="let campaign of old"
+          [routerLink]="['/campaigns', campaign.id]"
+        >
+          <div class="campaign">
+            <div class="client history">{{ campaign.client }}</div>
+            <div class="name history">{{ campaign.name }}</div>
+            <div class="dates history">
+              {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+            </div>
+          </div></a
+        >
+      </div>
+    </div>
+  </div>
+  <!-- <div
+    class="campaigns-list"
+    *ngIf="
+      searchbar === '' &&
+      !this.filters['running'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['history'] &&
+      !this.searchActive
+    "
+  > -->
+  <!-- <mat-tab-group fitInkBarToContent animationDuration="0ms">
       <mat-tab label="Twoje kampanie">
         <h3>Do przetestowania:</h3>
         <div class="list current">
@@ -34,13 +267,7 @@
             *ngFor="let campaign of current"
             [routerLink]="['/campaigns', campaign.id]"
           >
-            <div
-              class="campaign"
-              [ngClass]="{
-                tested: campaign.alreadyTested === true,
-                new: campaign.newCampaign
-              }"
-            >
+            <div class="campaign">
               <div class="client">{{ campaign.client }}</div>
               <div class="name">{{ campaign.name }}</div>
               <div class="subtext">
@@ -66,7 +293,86 @@
           >
         </div></mat-tab
       >
-    </mat-tab-group>
+    </mat-tab-group> -->
+  <!-- </div> -->
+  <div
+    class="searchResults"
+    *ngIf="
+      searchbar !== '' ||
+      this.filters['running'] ||
+      this.filters['for_testing'] ||
+      this.filters['history']
+    "
+  >
+    <div class="list">
+      <a
+        *ngFor="let campaign of searchArray"
+        [routerLink]="['/campaigns', campaign.id]"
+      >
+        <div
+          [ngClass]="{
+            tested:
+              campaign.alreadyTested === true &&
+              !campaign.running &&
+              !campaign.history,
+            new: campaign.newCampaign
+          }"
+          class="campaign"
+        >
+          <div [ngClass]="{ history: campaign.history }" class="client">
+            {{ campaign.client }}
+          </div>
+          <div [ngClass]="{ history: campaign.history }" class="name">
+            {{ campaign.name }}
+          </div>
+          <div [ngClass]="{ history: campaign.history }" class="dates">
+            {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+            <span *ngIf="campaign.history">(zakończona)</span>
+          </div>
+        </div></a
+      >
+    </div>
+  </div>
+
+  <div
+    class="history_array"
+    *ngIf="
+      searchbar === '' &&
+      !this.filters['running'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['history'] &&
+      this.searchActive
+    "
+  >
+    <h3>Ostatnio wyszukiwane:</h3>
+    <div class="list">
+      <a
+        *ngFor="let campaign of historyArray"
+        [routerLink]="['/campaigns', campaign.id]"
+      >
+        <div class="campaign">
+          <div [ngClass]="{ history: campaign.history }" class="client">
+            {{ campaign.client }}
+          </div>
+          <div [ngClass]="{ history: campaign.history }" class="name">
+            {{ campaign.name }}
+          </div>
+          <div [ngClass]="{ history: campaign.history }" class="dates">
+            {{ campaign.getStartDate() }} - {{ campaign.getEndDate() }}
+            <span *ngIf="campaign.history">(zakończona)</span>
+            <span
+              id="remove_{{ campaign.id }}"
+              class="material-symbols-outlined close"
+              matPrefix
+              (click)="removeFromHistory($event)"
+              (click)="delete($event)"
+            >
+              close
+            </span>
+          </div>
+        </div>
+      </a>
+    </div>
   </div>
 </div>
 

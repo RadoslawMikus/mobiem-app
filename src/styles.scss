@@ -48,3 +48,12 @@ app-navigation {
   background-color: $navigation-bg;
   z-index: 5;
 }
+
+body > app-root > div > app-campaigns > div > div.campaigns-list > nav > div {
+  border-bottom: 1px solid #d4d4d4;
+}
+
+.mat-mdc-tab .mdc-tab__text-label,
+.mat-mdc-tab-link .mdc-tab__text-label {
+  color: #46464f;
+}

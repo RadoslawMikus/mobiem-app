@@ -1,5 +1,12 @@
-import { Component } from '@angular/core';
 import { Campaign } from './single-campaign/campaign.model';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { MatTabsModule, MatTabNavPanel } from '@angular/material/tabs';
+// import {Component} from '@angular/core';
+// import { ThemePalette } from '@angular/material/core';
+// import { MatButtonModule } from '@angular/material/button';
+// import { NgFor } from '@angular/common';
+// import {MatTabsModule} from '@angular/material/tabs';
 
 @Component({
   selector: 'app-campaigns',
@@ -7,172 +14,266 @@ import { Campaign } from './single-campaign/campaign.model';
   styleUrls: ['./campaigns.component.scss'],
 })
 export class CampaignsComponent {
-  reaction = [
-    new Campaign(
-      1,
-      'Biedronka',
-      'Świeżaki',
-      new Date(2022, 5, 10, 12, 2, 10),
-      new Date(2022, 5, 12, 15, 9, 0),
-      false,
-      true,
-      false,
-      false
-    ),
-    new Campaign(
-      2,
-      'Lidl',
-      'Lidlaki',
-      new Date(2023, 2, 15, 19, 9, 12),
-      new Date(2023, 3, 12, 12, 44, 0),
-      true,
-      false,
-      false,
-      false
-    ),
-  ];
+  searchbar = '';
+  searchActive = false;
+  allArrays: Array<any>;
+  old: Array<any>;
+  current: Array<any>;
+  reaction: Array<any>;
+  searchArray: Array<any> = [];
+  historyArray: Array<any> = [];
+  filters: Object = {
+    running: false,
+    for_testing: false,
+    history: false,
+  };
 
-  current = [
-    new Campaign(
-      3,
-      'Kaufland',
-      'Kauflandziaki',
-      new Date(2023, 3, 5, 11, 41, 20),
-      new Date(2022, 3, 7, 17, 44, 30),
-      false,
-      false,
-      true,
-      false
-    ),
-    new Campaign(
-      4,
-      'Biedronka',
-      'Świeżaki',
-      new Date(2022, 5, 10, 12, 2, 10),
-      new Date(2022, 5, 12, 15, 9, 0),
-      false,
-      false,
-      true,
-      false
-    ),
-    new Campaign(
-      5,
-      'Lidl',
-      'Lidlaki',
-      new Date(2023, 2, 15, 19, 9, 12),
-      new Date(2023, 3, 12, 12, 44, 0),
-      false,
-      false,
-      true,
-      false
-    ),
-    new Campaign(
-      6,
-      'Kaufland',
-      'Kauflandziaki',
-      new Date(2023, 3, 5, 11, 41, 20),
-      new Date(2022, 3, 7, 17, 44, 30),
-      false,
-      false,
-      true,
-      false
-    ),
-  ];
+  activeTab: string = 'current';
+  previousTab: string = 'current';
 
-  old = [
-    new Campaign(
-      7,
-      'Intermarche',
-      'Intermarszaki',
-      new Date(2021, 12, 10, 16, 2, 10),
-      new Date(2021, 12, 12, 12, 9, 0),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      8,
-      'Castorama',
-      'Castoramiaki',
-      new Date(2022, 2, 15, 19, 9, 12),
-      new Date(2022, 3, 12, 12, 44, 0),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      9,
-      'Mrówka',
-      'Mrówkojadki',
-      new Date(2022, 1, 2, 11, 11, 20),
-      new Date(2022, 1, 15, 12, 32, 30),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      10,
-      'Żabka',
-      'Żabkojady',
-      new Date(2020, 2, 2, 12, 2, 10),
-      new Date(2020, 5, 12, 43, 9, 0),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      11,
-      'Selgros',
-      'Selgrosiaki',
-      new Date(2019, 2, 15, 19, 9, 12),
-      new Date(2019, 3, 12, 12, 44, 0),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      12,
-      'Kaufland',
-      'Kauflandziaki',
-      new Date(2023, 7, 15, 14, 41, 20),
-      new Date(2022, 9, 17, 17, 21, 30),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      13,
-      'Mrówka',
-      'Mrówkojady',
-      new Date(2023, 7, 15, 14, 41, 20),
-      new Date(2022, 9, 17, 17, 21, 30),
-      false,
-      false,
-      false,
-      true
-    ),
-    new Campaign(
-      14,
-      'Dino',
-      'Diniaki',
-      new Date(2023, 7, 15, 14, 41, 20),
-      new Date(2022, 9, 17, 17, 21, 30),
-      false,
-      false,
-      false,
-      true
-    ),
-  ];
+  activeLink = 'current';
+  // background: ThemePalette = undefined;
 
-  constructor() {}
+  constructor(public activatedRoute: ActivatedRoute, private router: Router) {
+    //   if (this.router.getCurrentNavigation().previousNavigation !== null) {
+    //     if (
+    //       this.router
+    //         .getCurrentNavigation()
+    //         .previousNavigation.finalUrl.toString() === '/formats' ||
+    //       this.router
+    //         .getCurrentNavigation()
+    //         .previousNavigation.finalUrl.toString() === '/login' ||
+    //       this.router
+    //         .getCurrentNavigation()
+    //         .previousNavigation.finalUrl.toString() === '/contact'
+    //     ) {
+    //       console.log(
+    //         this.router
+    //           .getCurrentNavigation()
+    //           .previousNavigation.finalUrl.toString()
+    //       );
+    //       this.searchActive = false;
+    //       this.searchbar = '';
+    //       this.filters['running'] = false;
+    //       this.filters['for_testing'] = false;
+    //       this.filters['history'] = false;
+    //       sessionStorage.setItem('searchbar', this.searchbar);
+    //       sessionStorage.setItem('filters', JSON.stringify(this.filters));
+    //     }
+    //   }
+  }
 
-  allArrs() {
-    return [...this.reaction, ...this.current, ...this.old];
+  ngOnInit() {
+    this.activatedRoute.data.subscribe((data) => {
+      this.allArrays = data['allArr'];
+      this.historyArray = [
+        data['allArr'][0],
+        data['allArr'][7],
+        data['allArr'][1],
+      ];
+      this.old = this.allArrays.filter((el) => el.history);
+      this.current = this.allArrays.filter((el) => el.running);
+      this.reaction = this.allArrays.filter(
+        (el) =>
+          (el.alreadyTested && !el.running && !el.history) || el.newCampaign
+      );
+    });
+
+    if (this.searchGet() !== null) {
+      this.searchIt(this.searchGet());
+    }
+    if (this.filtersGet() !== null) {
+      this.filters = this.filtersGet();
+    }
+    if (sessionStorage.getItem('activeTab') !== null) {
+      if (
+        sessionStorage.getItem('activeTab') === 'search' ||
+        sessionStorage.getItem('activeTab') === 'current'
+      ) {
+        this.activeTab = 'current';
+        this.activeLink = 'current';
+      } else if (sessionStorage.getItem('activeTab') === 'history') {
+        this.activeTab = 'history';
+        this.activeLink = 'history';
+      }
+    }
+    // console.log(sessionStorage.getItem('activeTab'));
+    this.changeFilter('');
+  }
+
+  addToHistory() {
+    if (this.searchbar.length > 2) {
+      const obie = [...this.searchArray, ...this.historyArray];
+      const map = new Map(obie.map((pos) => [pos.id, pos]));
+      const uniques = [...map.values()];
+      this.historyArray = uniques.slice(0, 10);
+      // console.log(this.historyArray);
+    }
+  }
+
+  removeFromHistory(e) {
+    const id = +e.srcElement.id.replace(/^\D+/g, '');
+    for (let his of this.historyArray) {
+      if (his.id == id) {
+        this.historyArray.splice(this.historyArray.indexOf(his), 1);
+      }
+    }
+  }
+
+  delete(e) {
+    e.stopPropagation();
+    e.preventDefault();
+  }
+
+  changeFilter($event) {
+    // console.log($event !== '');
+    let title = Object.keys(this.filters)
+      .filter((el) => this.filters[el] === true)
+      .toString();
+    if ($event !== '') {
+      title = $event.target.title;
+      let currentStatus = this.filters[$event.target.title];
+      this.filters['running'] = false;
+      this.filters['for_testing'] = false;
+      this.filters['history'] = false;
+      if ($event.target.title !== undefined) {
+        this.filters[$event.target.title] = !currentStatus;
+      }
+    }
+
+    this.filtersSave();
+
+    if (this.filters['running'] || this.filters['history']) {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          (el.client.toLowerCase().includes(this.searchbar) ||
+            el.name.toLowerCase().includes(this.searchbar)) &&
+          el[title]
+      );
+    } else if (this.filters['for_testing']) {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          (el.client.toLowerCase().includes(this.searchbar) ||
+            el.name.toLowerCase().includes(this.searchbar)) &&
+          !el['running'] &&
+          !el['history']
+      );
+    } else {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          el.client.toLowerCase().includes(this.searchbar) ||
+          el.name.toLowerCase().includes(this.searchbar)
+      );
+    }
+
+    // console.log(
+    //   Object.keys(this.filters)
+    //     .filter((el) => this.filters[el] === true)
+    //     .toString()
+    // );
+    // console.log(this.filters);
+    this.addToHistory();
+  }
+
+  makeSearchActive() {
+    this.searchActive = !this.searchActive;
+    if (this.searchActive) {
+      this.previousTab = this.activeTab;
+      this.activeTab = 'search';
+      // console.log(this.activeTab);
+      sessionStorage.setItem('activeTab', this.activeTab);
+    }
+
+    if (!this.searchActive) {
+      this.activeTab = this.previousTab;
+    }
+    this.searchbar = '';
+    this.filters['running'] = false;
+    this.filters['for_testing'] = false;
+    this.filters['history'] = false;
+    sessionStorage.setItem('searchbar', this.searchbar);
+    sessionStorage.setItem('filters', JSON.stringify(this.filters));
+  }
+
+  searchIt($event) {
+    this.searchbar = $event;
+    if (
+      !this.filters['running'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['history']
+    ) {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          el.client.toLowerCase().includes(this.searchbar) ||
+          el.name.toLowerCase().includes(this.searchbar)
+        // && this.searchbar !== ''
+      );
+    }
+    if (
+      this.filters['running'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['history']
+    ) {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          (el.client.toLowerCase().includes(this.searchbar) ||
+            el.name.toLowerCase().includes(this.searchbar)) &&
+          el.running
+      );
+    }
+    if (
+      this.filters['for_testing'] &&
+      !this.filters['running'] &&
+      !this.filters['history']
+    ) {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          (el.client.toLowerCase().includes(this.searchbar) ||
+            el.name.toLowerCase().includes(this.searchbar)) &&
+          !el.running &&
+          !el.history
+      );
+    }
+    if (
+      this.filters['history'] &&
+      !this.filters['for_testing'] &&
+      !this.filters['running']
+    ) {
+      this.searchArray = this.allArrays.filter(
+        (el) =>
+          (el.client.toLowerCase().includes(this.searchbar) ||
+            el.name.toLowerCase().includes(this.searchbar)) &&
+          el.history
+      );
+    }
+
+    this.addToHistory();
+  }
+
+  filtersSave() {
+    sessionStorage.setItem('filters', JSON.stringify(this.filters));
+  }
+
+  filtersGet() {
+    return JSON.parse(sessionStorage.getItem('filters'));
+  }
+
+  searchSave() {
+    sessionStorage.setItem('searchbar', this.searchbar);
+  }
+
+  searchGet() {
+    if (
+      sessionStorage.getItem('searchbar') !== null &&
+      sessionStorage.getItem('searchbar') !== ''
+    ) {
+      this.searchActive = true;
+    }
+    return sessionStorage.getItem('searchbar');
+  }
+
+  changeTab(par) {
+    this.activeTab = par;
+    sessionStorage.setItem('activeTab', this.activeTab);
   }
 }
