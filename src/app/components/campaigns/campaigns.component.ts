@@ -196,7 +196,8 @@ export class CampaignsComponent {
   }
 
   searchIt($event) {
-    this.searchbar = $event;
+    this.searchbar = $event.toLowerCase();
+    // console.log(this.searchbar);
     if (
       !this.filters['running'] &&
       !this.filters['for_testing'] &&
