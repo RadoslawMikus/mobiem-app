@@ -196,7 +196,7 @@ export class CampaignsComponent {
   }
 
   searchIt($event) {
-    this.searchbar = $event.toLowerCase();
+    this.searchbar = $event;
     // console.log(this.searchbar);
     if (
       !this.filters['running'] &&
@@ -205,8 +205,8 @@ export class CampaignsComponent {
     ) {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          el.client.toLowerCase().includes(this.searchbar) ||
-          el.name.toLowerCase().includes(this.searchbar)
+          el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+          el.name.toLowerCase().includes(this.searchbar.toLowerCase())
         // && this.searchbar !== ''
       );
     }
@@ -217,8 +217,8 @@ export class CampaignsComponent {
     ) {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          (el.client.toLowerCase().includes(this.searchbar) ||
-            el.name.toLowerCase().includes(this.searchbar)) &&
+          (el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+            el.name.toLowerCase().includes(this.searchbar.toLowerCase())) &&
           el.running
       );
     }
@@ -229,8 +229,8 @@ export class CampaignsComponent {
     ) {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          (el.client.toLowerCase().includes(this.searchbar) ||
-            el.name.toLowerCase().includes(this.searchbar)) &&
+          (el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+            el.name.toLowerCase().includes(this.searchbar.toLowerCase())) &&
           !el.running &&
           !el.history
       );
@@ -242,8 +242,8 @@ export class CampaignsComponent {
     ) {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          (el.client.toLowerCase().includes(this.searchbar) ||
-            el.name.toLowerCase().includes(this.searchbar)) &&
+          (el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+            el.name.toLowerCase().includes(this.searchbar.toLowerCase())) &&
           el.history
       );
     }
