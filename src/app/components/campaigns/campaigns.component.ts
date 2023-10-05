@@ -146,23 +146,23 @@ export class CampaignsComponent {
     if (this.filters['running'] || this.filters['history']) {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          (el.client.toLowerCase().includes(this.searchbar) ||
-            el.name.toLowerCase().includes(this.searchbar)) &&
+          (el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+            el.name.toLowerCase().includes(this.searchbar.toLowerCase())) &&
           el[title]
       );
     } else if (this.filters['for_testing']) {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          (el.client.toLowerCase().includes(this.searchbar) ||
-            el.name.toLowerCase().includes(this.searchbar)) &&
+          (el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+            el.name.toLowerCase().includes(this.searchbar.toLowerCase())) &&
           !el['running'] &&
           !el['history']
       );
     } else {
       this.searchArray = this.allArrays.filter(
         (el) =>
-          el.client.toLowerCase().includes(this.searchbar) ||
-          el.name.toLowerCase().includes(this.searchbar)
+          el.client.toLowerCase().includes(this.searchbar.toLowerCase()) ||
+          el.name.toLowerCase().includes(this.searchbar.toLowerCase())
       );
     }
 
