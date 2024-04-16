@@ -13,7 +13,26 @@ iframe {
   }
 }
 
-span {
+// span {
+//   position: absolute;
+//   left: 3%;
+//   top: 2%;
+//   border-radius: 50%;
+//   color: #000;
+//   background-color: $close-button;
+//   width: 30px;
+//   height: 30px;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   font: {
+//     family: Verdana, Geneva, Tahoma, sans-serif;
+//     size: 22px;
+//     weight: 300;
+//   }
+// }
+
+.close {
   position: absolute;
   left: 3%;
   top: 2%;
@@ -22,12 +41,6 @@ span {
   background-color: $close-button;
   width: 30px;
   height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font: {
-    family: Verdana, Geneva, Tahoma, sans-serif;
-    size: 22px;
-    weight: 300;
-  }
+  opacity: 0;
+  transition: opacity 0.5s 0.5s ease;
 }

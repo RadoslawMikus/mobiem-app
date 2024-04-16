@@ -24,6 +24,7 @@
       <mat-label>Hasło</mat-label>
       <input
         matInput
+        type="password"
         placeholder="Twoje hasło"
         id="password"
         name="password"
@@ -36,6 +37,7 @@
       mat-raised-button
       [ngClass]="{ green: login && password }"
       class="login-btn"
+      (click)="zaloguj()"
     >
       Zaloguj się
     </button>

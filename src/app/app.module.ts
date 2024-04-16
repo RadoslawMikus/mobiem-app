@@ -19,6 +19,8 @@ import { IframeComponent } from './components/iframe/iframe.component';
 import { SafePipe } from './components/iframe/safe.pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { LogoComponent } from './components/logo/logo.component';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { LoginActivateGuard } from './login-activate.guard';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,9 @@ import { LogoComponent } from './components/logo/logo.component';
     MatButtonModule,
     MatIconModule,
     FormsModule,
+    NgbCarouselModule,
   ],
-  providers: [],
+  providers: [LoginActivateGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

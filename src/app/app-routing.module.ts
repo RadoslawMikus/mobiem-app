@@ -8,6 +8,13 @@ import { FormatsComponent } from './components/formats/formats.component';
 import { IframeComponent } from './components/iframe/iframe.component';
 import { LoginComponent } from './components/login/login.component';
 import { Campaign } from './components/campaigns/single-campaign/campaign.model';
+import {
+  CanActivate,
+  Router,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+} from '@angular/router';
+import { LoginActivateGuard } from './login-activate.guard';
 
 const allArr = [
   new Campaign(
@@ -166,13 +173,16 @@ const allArr = [
   ),
 ];
 
+const zalogowano: boolean = false;
+
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   {
     path: 'campaigns',
     component: CampaignsComponent,
-    data: { allArr },
+    data: { allArr, zalogowano },
+    canActivate: [LoginActivateGuard],
   },
   // {
   //   path: 'filters/current',

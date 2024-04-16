@@ -13,24 +13,57 @@
 
   <h2>3 podstawowe kroki w mobile </h2>
 
-  <img src="assets/welcome_mockup.png" class="mockup_welcome" />
+  <!-- <img src="assets/welcome_mockup.png" class="mockup_welcome" /> -->
 
-  <h3>Dopasuj komunikat</h3>
-  <div class="dots"><span></span><span></span><span></span></div>
+  <ngb-carousel [showNavigationArrows]="false">
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img
+          src="assets/welcome_mockup.png"
+          alt="Random first slide"
+          class="w-90"
+        />
+      </div>
+      <div class="carousel-caption">First slide label</div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper">
+        <img
+          src="assets/welcome_mockup.png"
+          alt="Random second slide"
+          class="w-90"
+        />
+      </div>
+      <div class="carousel-caption">Second slide label</div>
+    </ng-template>
+    <ng-template ngbSlide>
+      <div class="picsum-img-wrapper w-100">
+        <img
+          src="assets/welcome_mockup.png"
+          alt="Random third slide"
+          class="w-90"
+        />
+      </div>
+      <div class="carousel-caption">Third slide label</div>
+    </ng-template>
+  </ngb-carousel>
+
+  <!-- <h3>Dopasuj komunikat</h3>
+  <div class="dots"><span></span><span></span><span></span></div> -->
   <h2>Dlaczego reklama mobile?</h2>
   <div class="points">
-    <div class="row">
+    <div class="carousel_row">
       <img src="assets/rectangle.png" class="rectangle" /><span
         >Nowocześnie i w angażujący sposób zaproś użytkowników do świata Twojej
         marki.</span
       >
     </div>
-    <div class="row">
+    <div class="carousel_row">
       <img src="assets/rectangle.png" class="rectangle" /><span
         >Mobile to wysokie zasięgi wśród odbiorców z różnych generacji.</span
       >
     </div>
-    <div class="row">
+    <div class="carousel_row">
       <img src="assets/rectangle.png" class="rectangle" /><span
         >Super wyniki i efektywność, bo dla nas liczy się wysoka jakość, a nie
         ilość.</span

@@ -1,2 +1,10 @@
-<iframe [src]="getUrl(iframe_url) | safe"></iframe>
-<span (click)="closeIframe()">X</span>
+<iframe [src]="getUrl(iframe_url) | safe" id="cos"></iframe>
+<!-- <span (click)="closeIframe()">X</span> -->
+<img
+  src="assets/close.svg"
+  (click)="closeIframe()"
+  class="close"
+  [style.top.px]="this.topY"
+  [style.left.px]="this.topX"
+  id="close"
+/>

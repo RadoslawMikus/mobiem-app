@@ -28,8 +28,8 @@ export class FormatSectionComponent implements OnInit {
       this.description_2 =
         'User otrzymuje reklamę w głównym oknie powiadomień telefonu.';
       this.activeSection = [
-        new Format('Push graficzny', 'Ikona + Tytuł + Banner', 'URL pusha 1'),
-        new Format('Push tekstowy', 'Ikona + Tytuł + Tekst', 'URL pusha 2'),
+        new Format('Push graficzny', 'Ikona + Tytuł + Banner', 'mobiemapp06'),
+        new Format('Push tekstowy', 'Ikona + Tytuł + Tekst', 'mobiemapp08'),
       ];
     }
 

@@ -94,7 +94,6 @@ h3 {
 button {
   background: $button-bg;
   color: #fff;
-  border-radius: 100px;
   width: 210px;
   height: 40px;
   line-height: 20px;
@@ -102,6 +101,9 @@ button {
   font: {
     weight: 500;
     size: 14px;
+  }
+  border: 0 {
+    radius: 100px;
   }
 }
 
@@ -123,11 +125,32 @@ button {
   text-align: left;
   margin: 5% auto 10%;
 
-  .row {
+  .carousel_row {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     gap: 10%;
     margin: 2% 0;
+  }
+}
+
+.w-90 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.carousel-caption {
+  position: relative;
+  left: 0;
+  right: 0;
+  color: #000;
+  margin: 10% auto 4%;
+  line-height: 20px;
+  letter-spacing: 0.1px;
+  padding: 0;
+  font: {
+    weight: 500;
+    size: 14px;
   }
 }

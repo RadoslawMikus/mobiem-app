@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 $navigation-bg: #3149e8;
@@ -61,4 +64,25 @@ body > app-root > div > app-campaigns > div > div.campaigns-list > nav > div {
 span.mdc-tab-indicator {
   width: 50%;
   left: 25%;
+}
+
+.carousel-indicators {
+  button {
+    background-color: #d9d9d9 !important;
+    width: 10px !important;
+    height: 10px !important;
+    margin: 1% 5px 0 !important;
+    opacity: 1 !important;
+    border-radius: 10px !important;
+  }
+
+  .active {
+    background-color: #3149e8 !important;
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  border-top: none;
+  border-bottom: none;
+  border-radius: 10px;
 }

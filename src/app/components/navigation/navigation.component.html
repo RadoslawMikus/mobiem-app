@@ -1,6 +1,6 @@
 <nav>
   <a routerLink="/login" routerLinkActive #lg="routerLinkActive"
-    ><div class="element">
+    ><div class="element hidden">
       <div class="icon" [ngClass]="{ icon_active: lg.isActive }">
         <span class="material-symbols-outlined"> key </span>
       </div>
@@ -9,7 +9,7 @@
   >
   <a routerLink="/campaigns" routerLinkActive #cp="routerLinkActive">
     <div class="element">
-      <div class="icon" [ngClass]="{ icon_active: cp.isActive }">
+      <div class="icon" [ngClass]="{ icon_active: cp.isActive || lg.isActive }">
         <span class="material-symbols-outlined"> grade </span>
       </div>
       <div class="title" [ngClass]="{ title_active: cp.isActive }">
